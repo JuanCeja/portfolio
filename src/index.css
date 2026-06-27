@@ -1,0 +1,88 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* --- Portfolio fonts --- */
+@theme {
+  --font-sans: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'Fira Code', monospace;
+}
+
+/* --- shadcn token aliases (Tailwind v4 needs these) --- */
+@theme inline {
+  --font-heading: var(--font-sans);
+  --color-background:      var(--background);
+  --color-foreground:      var(--foreground);
+  --color-card:            var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover:         var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary:         var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary:       var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted:           var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent:          var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive:     var(--destructive);
+  --color-border:          var(--border);
+  --color-input:           var(--input);
+  --color-ring:            var(--ring);
+  --radius-sm:  calc(var(--radius) * 0.6);
+  --radius-md:  calc(var(--radius) * 0.8);
+  --radius-lg:  var(--radius);
+  --radius-xl:  calc(var(--radius) * 1.4);
+}
+
+/* --- Always-dark theme (no light mode) --- */
+:root {
+  --background:            #0d0f14;
+  --foreground:            #e6e8ee;
+  --card:                  #161922;
+  --card-foreground:       #e6e8ee;
+  --popover:               #161922;
+  --popover-foreground:    #e6e8ee;
+  --primary:               #2dd4bf;
+  --primary-foreground:    #0d0f14;
+  --secondary:             #1e2230;
+  --secondary-foreground:  #e6e8ee;
+  --muted:                 #1e2230;
+  --muted-foreground:      #8b91a1;
+  --accent:                #2dd4bf;
+  --accent-foreground:     #0d0f14;
+  --destructive:           oklch(0.704 0.191 22.216);
+  --border:                oklch(1 0 0 / 8%);
+  --input:                 oklch(1 0 0 / 10%);
+  --ring:                  #2dd4bf;
+  --radius:                0.5rem;
+}
+
+/* --- Blink animation for cursor --- */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+.animate-blink {
+  animation: blink 1.2s step-end infinite;
+}
+
+/* --- Base resets --- */
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    box-sizing: border-box;
+  }
+  html {
+    scroll-behavior: smooth;
+    @apply font-sans;
+  }
+  body {
+    @apply bg-background text-foreground;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+}
