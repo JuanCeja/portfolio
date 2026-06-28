@@ -75,7 +75,7 @@ export default function About() {
 
           {/* Side column — quick facts */}
           <div className="lg:w-52 shrink-0">
-            <div className="rounded-lg border border-white/10 bg-[#161922] px-5 py-5 font-mono text-sm">
+            <div className="rounded-lg border border-white/10 bg-[#161922] px-5 py-5 font-mono text-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#2dd4bf]/30 hover:shadow-xl hover:shadow-[#2dd4bf]/5">
               {FACTS.map(({ label, value }) => (
                 <div key={label} className="mb-5 last:mb-0">
                   <div className="mb-1 text-xs text-[#2dd4bf]">{label}</div>
