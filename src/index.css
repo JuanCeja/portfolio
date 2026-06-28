@@ -60,6 +60,14 @@
   --radius:                0.5rem;
 }
 
+/* --- Background glow drift --- */
+@keyframes glow-drift {
+  0%   { transform: translate(0px,   0px); }
+  30%  { transform: translate(70px,  45px); }
+  60%  { transform: translate(-45px, 75px); }
+  100% { transform: translate(0px,   0px); }
+}
+
 /* --- Blink animation for cursor --- */
 @keyframes blink {
   0%, 100% { opacity: 1; }
