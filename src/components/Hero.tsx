@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { Button } from './ui/button'
 
 // Each entry: the prompt line, then the response line(s)
 const SEQUENCE = [
@@ -24,7 +23,6 @@ type Line = { text: string; type: 'prompt' | 'response' }
 
 export default function Hero() {
   const [lines, setLines] = useState<Line[]>([])
-  const [typing, setTyping] = useState(true)
 
   useEffect(() => {
     let cancelled = false
@@ -70,7 +68,7 @@ export default function Hero() {
         await sleep(LINE_PAUSE)
       }
 
-      if (!cancelled) setTyping(false)
+      if (!cancelled) { /* typing complete */ }
     }
 
     typeSequence()
@@ -147,21 +145,20 @@ export default function Hero() {
           </div>
 
           <div className="flex flex-wrap justify-center gap-3 lg:justify-start">
-            <Button
-              asChild
-              className="bg-[#2dd4bf] font-mono text-[#0d0f14] hover:bg-[#2dd4bf]/85"
+            <a
+              href="#work"
+              className="inline-flex items-center justify-center rounded-lg bg-[#2dd4bf] px-5 py-2 font-mono text-sm font-medium text-[#0d0f14] transition-all hover:bg-[#2dd4bf]/85"
             >
-              <a href="#work">View Work</a>
-            </Button>
-            <Button
-              asChild
-              variant="outline"
-              className="border-white/15 font-mono text-[#e6e8ee] hover:border-[#2dd4bf]/60 hover:text-[#2dd4bf]"
+              View Work
+            </a>
+            <a
+              href="https://github.com/JuanCeja"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center justify-center rounded-lg border border-white/15 px-5 py-2 font-mono text-sm font-medium text-[#e6e8ee] transition-all hover:border-[#2dd4bf]/60 hover:text-[#2dd4bf]"
             >
-              <a href="https://github.com/JuanCeja" target="_blank" rel="noreferrer">
-                GitHub
-              </a>
-            </Button>
+              GitHub
+            </a>
           </div>
         </div>
       </div>
