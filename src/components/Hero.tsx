@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Button } from './ui/button'
 
 // Each entry: the prompt line, then the response line(s)
@@ -10,9 +10,9 @@ const SEQUENCE = [
   },
   {
     prompt: '> what-i-build',
-    response: 'Full-stack web apps — Python, React, FastAPI, Postgres. Frontend to deploy.',
+    response: 'Full-stack Software — Python, React, FastAPI, Postgres. From Frontend to deploy.',
   },
-  { prompt: '> status', response: 'Open to new-grad SWE roles · SF Bay Area / remote' },
+  { prompt: '> status', response: 'Open to new-grad SWE roles · SF Bay Area / Open to Relocation' },
 ]
 
 // ms per character for typing
@@ -25,7 +25,6 @@ type Line = { text: string; type: 'prompt' | 'response' }
 export default function Hero() {
   const [lines, setLines] = useState<Line[]>([])
   const [typing, setTyping] = useState(true)
-  const terminalRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     let cancelled = false
@@ -78,12 +77,6 @@ export default function Hero() {
     return () => { cancelled = true }
   }, [])
 
-  // Auto-scroll terminal to bottom while typing
-  useEffect(() => {
-    if (terminalRef.current) {
-      terminalRef.current.scrollTop = terminalRef.current.scrollHeight
-    }
-  }, [lines])
 
   return (
     <section
@@ -123,10 +116,7 @@ export default function Hero() {
           </div>
 
           {/* Terminal body */}
-          <div
-            ref={terminalRef}
-            className="h-[250px] overflow-hidden px-5 py-4 font-mono text-sm leading-relaxed"
-          >
+          <div className="px-5 py-4 font-mono text-sm leading-relaxed">
             {lines.map((line, i) =>
               line.type === 'response'
                 ? line.text.split('\n').map((part, j) => (
@@ -152,7 +142,7 @@ export default function Hero() {
               Juan Ceja
             </h1>
             <p className="mt-3 max-w-[380px] text-lg text-[#8b91a1]">
-              Software engineer with roots in operational tech —<br className="hidden sm:block" /> building for what's next.
+              Full-stack software engineer —<br className="hidden sm:block" /> building and shipping what's next.
             </p>
           </div>
 

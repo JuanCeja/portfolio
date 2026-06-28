@@ -80,6 +80,10 @@
     scroll-behavior: smooth;
     @apply font-sans;
   }
+  /* offset anchor scroll by nav height so sections aren't hidden under the sticky bar */
+  section[id] {
+    scroll-margin-top: 65px;
+  }
   body {
     @apply bg-background text-foreground;
     margin: 0;

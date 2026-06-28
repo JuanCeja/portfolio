@@ -6,12 +6,20 @@ const NAV_LINKS = [
   { num: '05', label: 'contact', href: '#contact' },
 ]
 
+function scrollTo(id: string) {
+  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+}
+
 export default function Nav() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-white/5 bg-[#0d0f14]/90 backdrop-blur-sm">
       <div className="mx-auto flex max-w-[1100px] items-center justify-between px-6 py-4">
         {/* Logo */}
-        <a href="#home" className="font-mono text-lg font-medium text-[#e6e8ee]">
+        <a
+          href="#home"
+          onClick={(e) => { e.preventDefault(); scrollTo('home') }}
+          className="font-mono text-lg font-medium text-[#e6e8ee]"
+        >
           JuanCeja
           <span className="animate-blink text-[#2dd4bf]">_</span>
         </a>
@@ -22,13 +30,14 @@ export default function Nav() {
             <a
               key={label}
               href={href}
+              onClick={(e) => { e.preventDefault(); scrollTo(href.slice(1)) }}
               className="group flex flex-col items-start gap-0.5"
             >
               <span className="font-mono text-[10px] text-[#8b91a1] transition-colors group-hover:text-[#2dd4bf]">
                 {num}
               </span>
               <span className="font-mono text-sm text-[#8b91a1] transition-colors group-hover:text-[#2dd4bf]">
-                //{' '}{label}
+                //{' '}{label}
               </span>
             </a>
           ))}
