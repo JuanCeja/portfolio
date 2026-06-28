@@ -74,7 +74,7 @@ function FeaturedCard({ project }: { project: Project }) {
 
 function RegularCard({ project }: { project: Project }) {
   return (
-    <div className="group flex flex-col overflow-hidden rounded-xl border border-white/10 bg-[#161922] transition-all duration-300 hover:-translate-y-1 hover:border-[#2dd4bf]/30 hover:shadow-xl hover:shadow-[#2dd4bf]/5">
+    <div className="group flex h-full flex-col overflow-hidden rounded-xl border border-white/10 bg-[#161922] transition-all duration-300 hover:-translate-y-1 hover:border-[#2dd4bf]/30 hover:shadow-xl hover:shadow-[#2dd4bf]/5">
       {/* Screenshot */}
       <div className="aspect-video w-full overflow-hidden bg-[#0d0f14]">
         <img

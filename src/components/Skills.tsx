@@ -73,12 +73,12 @@ export default function Skills() {
           {SKILL_GROUPS.map((group, i) => (
             <div
               key={group.label}
-              className={`transition-all duration-700 ease-out ${
+              className={`h-full transition-all duration-700 ease-out ${
                 visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
               }`}
               style={{ transitionDelay: visible ? `${i * 80}ms` : '0ms' }}
             >
-              <div className="rounded-xl border border-white/10 bg-[#161922] p-5 transition-all duration-300 hover:-translate-y-1 hover:border-[#2dd4bf]/30 hover:shadow-xl hover:shadow-[#2dd4bf]/5">
+              <div className="h-full rounded-xl border border-white/10 bg-[#161922] p-5 transition-all duration-300 hover:-translate-y-1 hover:border-[#2dd4bf]/30 hover:shadow-xl hover:shadow-[#2dd4bf]/5">
                 <p className="mb-4 font-mono text-xs text-[#2dd4bf]">{group.label}</p>
                 <div className="flex flex-wrap gap-2">
                   {group.skills.map((skill) => (

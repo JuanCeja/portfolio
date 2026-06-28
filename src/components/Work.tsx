@@ -60,7 +60,7 @@ export default function Work() {
           {rest.map((project, i) => (
             <div
               key={project.name}
-              className={`transition-all duration-700 ease-out ${
+              className={`h-full transition-all duration-700 ease-out ${
                 visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
               }`}
               style={{ transitionDelay: visible ? `${(i + 1) * 100}ms` : '0ms' }}
