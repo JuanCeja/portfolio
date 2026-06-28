@@ -77,7 +77,6 @@
     box-sizing: border-box;
   }
   html {
-    scroll-behavior: smooth;
     @apply font-sans;
   }
   /* offset anchor scroll by nav height so sections aren't hidden under the sticky bar */
